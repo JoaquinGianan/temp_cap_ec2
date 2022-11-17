@@ -20,7 +20,7 @@ class Result(BaseModel):
 
 @app.get("/ping")
 def pong():
-    return {"pingi": "pongi!"} , print("aleluya")  # added print command to see how it works in the swagger ui.
+    return {"repingi": "preongi!"} , print("aleluya")  # added print command to see how it works in the swagger ui.
 
 @app.post("/testeo") # a test function to check the format of the input data
 def testeo(datos : Samplein):
