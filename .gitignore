@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+
+# ec2 keys for capstone testing
+jg-temp-cap-ec2.pem
+
