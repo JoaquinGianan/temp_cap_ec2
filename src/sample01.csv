@@ -1,0 +1,2 @@
+Received Packets,Received Bytes,Sent Bytes,Sent Packets,Port alive Duration (S),Delta Received Packets,Delta Received Bytes,Delta Sent Bytes,Delta Sent Packets,Total Load/Rate,Total Load/Latest,Unknown Load/Rate,Unknown Load/Latest,Latest bytes counter,Packets Looked Up,Packets Matched
+449,6335491,33279,289,284,4,556,560,4,0,0,0,0,0,2494,2338
