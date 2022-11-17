@@ -20,7 +20,7 @@ class Result(BaseModel):
 
 @app.get("/ping")
 def pong():
-    return {"ping": "pong!"} , print("aleluya")  # added print command to see how it works in the swagger ui.
+    return {"pingi": "pongi!"} , print("aleluya")  # added print command to see how it works in the swagger ui.
 
 @app.post("/testeo") # a test function to check the format of the input data
 def testeo(datos : Samplein):
@@ -30,24 +30,17 @@ def testeo(datos : Samplein):
 @app.post("/sendfile")  #takes a pd.DataFrame.to_csv() file and returns the prediction
 async def sendfile(file: UploadFile = File(...)):
     try:
-        #contents = file.file.read()
-        #print(contents)
-        # with open(file.filename, 'wb') as f:
-        #     f.write(contents)
+        
         sample = pd.read_csv(file.file)
-        #file.file.close()
+     
         result = predi(sample)
         
     except Exception:
         return {"message": "There was an error uploading the file"}
 
-    #sample = pd.read_csv(f)
-    #file.file.close()
-    #result = predi(sample)
 
     return result
 
-    #return {"message": f"Successfully uploaded {file.filename}"}
 
 
 
@@ -65,8 +58,6 @@ def get_prediction(payload : Samplein):   #def get_prediction(payload: Samplein)
     data_final.append(data_init) #the from_dict expects a list of dictionaries
 
     sample = pd.DataFrame.from_dict(data_final) #convert the dictionary into a dataframe
-    
-    #sample = pd.read_json(payload.sample,orient="records") #the data is not comming as json
     
     result = predi(sample) #have to define sample
     
@@ -93,5 +84,5 @@ def get_sample_prediction(id: int):
     return print("The predicted nature of the network status is: {} and the actual status is: {}.".format(result , sample[1]))  , result, sample[1]  #print out and two objects as returns
 
 
-
+# we can update the messages to recognize attack or no attack and mention that in the report of the prediction
 
