@@ -1,6 +1,7 @@
 # Project Network Analytics Fourthbrain - Network Analytics
 
-This is the docker/container test of our capstone deployment
+## This is the docker/container test of our capstone deployment
+## it is in the container branch of the repo
 
 
 For this Capstone project we are using data fron the University of Nevada.
