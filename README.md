@@ -1,5 +1,8 @@
 # Project Network Analytics Fourthbrain - Network Analytics
 
+This is the docker/container test of our capstone deployment
+
+
 For this Capstone project we are using data fron the University of Nevada.
 
 Specifically, their Reno Intrusion Detection Dataset (UNR-IDD).
