@@ -1,6 +1,8 @@
 Capstone_MLE9
 ==============================
 
+## this is now on the container branch.
+
 Renato, this is a summary of what is currently in my src folder and the model.py and main.py files.
 currently everything is working (with more or less intervention) through fastapi and uvicorn.
 
@@ -29,3 +31,5 @@ all_in_prediction2: same as above but you enter the id as a required data at the
 
 
 uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+
+
