@@ -12,3 +12,6 @@ I may need to create another image...  with an  ENTRYPOINT command in the docker
 but I will start experimenting with it in another branch of this branch...  "container-sub"
 
 will be working on the above issues
+
+calling the images captest-sub-01 and so on
+calling the containers capcont-sub-it and so on
