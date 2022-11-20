@@ -22,53 +22,53 @@ class Result(BaseModel):
 def pong():
     return {"repingi": "preongi!"} , print("aleluya")  # added print command to see how it works in the swagger ui.
 
-@app.post("/testeo") # a test function to check the format of the input data
-def testeo(datos : Samplein):
-    return datos.sample    
+# @app.post("/testeo") # a test function to check the format of the input data
+# def testeo(datos : Samplein):
+#     return datos.sample    
     
 
-@app.post("/sendfile")  #takes a pd.DataFrame.to_csv() file and returns the prediction
-async def sendfile(file: UploadFile = File(...)):
-    try:
+# @app.post("/sendfile")  #takes a pd.DataFrame.to_csv() file and returns the prediction
+# async def sendfile(file: UploadFile = File(...)):
+#     try:
         
-        sample = pd.read_csv(file.file)
+#         sample = pd.read_csv(file.file)
      
-        result = predi(sample)
+#         result = predi(sample)
         
-    except Exception:
-        return {"message": "There was an error uploading the file"}
+#     except Exception:
+#         return {"message": "There was an error uploading the file"}
 
 
-    return result
+#     return result
 
 
 
 
-@app.post("/predict") # takes a dicttionary with "" in the keys, wer are using  in sample1.to_json(orient="records") format but take only the dict part of the list and returns the prediction
-def get_prediction(payload : Samplein):   #def get_prediction(payload: Samplein):
-    """
-    This function takes in a sample and returns the predicted class.
-    """
+# @app.post("/predict") # takes a dicttionary with "" in the keys, wer are using  in sample1.to_json(orient="records") format but take only the dict part of the list and returns the prediction
+# def get_prediction(payload : Samplein):   #def get_prediction(payload: Samplein):
+#     """
+#     This function takes in a sample and returns the predicted class.
+#     """
 
-    # the data samples are comming as a dictionary, to convert them into the dataframe expected
-    # by the model wefirst need to reconvert it into a format that the df.from_dict will understand
+#     # the data samples are comming as a dictionary, to convert them into the dataframe expected
+#     # by the model wefirst need to reconvert it into a format that the df.from_dict will understand
 
-    data_init = payload.sample  #to retreive the dictionary
-    data_final = []
-    data_final.append(data_init) #the from_dict expects a list of dictionaries
+#     data_init = payload.sample  #to retreive the dictionary
+#     data_final = []
+#     data_final.append(data_init) #the from_dict expects a list of dictionaries
 
-    sample = pd.DataFrame.from_dict(data_final) #convert the dictionary into a dataframe
+#     sample = pd.DataFrame.from_dict(data_final) #convert the dictionary into a dataframe
     
-    result = predi(sample) #have to define sample
+#     result = predi(sample) #have to define sample
     
-    if not result:
-        raise HTTPException(status_code=400, detail="Model not found.")
+#     if not result:
+#         raise HTTPException(status_code=400, detail="Model not found.")
 
-    return result  
+#     return result  
 
 
 
-@app.post("/all_in_prediction") # waits for the entry of an id value (of the sample in the test set) and returns the prediction and the sample's label.
+@app.post("/all_in_prediction") # waits for the entry of an id value by user (of the sample in the test set) and returns the prediction and the sample's label.
 def get_sample_prediction():
     sample = sample_generator2()
     result = predi(sample[0])
