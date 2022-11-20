@@ -18,29 +18,29 @@ class Result(BaseModel):
     result: str
 
 
-@app.get("/ping")
-def pong():
-    return {"repingi": "preongi!-2022-11-20-16-40"} , print("aleluya, this app is working")  # added print command to see how it works in the swagger ui.
+# @app.get("/ping")
+# def pong():
+#     return {"repingi": "preongi!-2022-11-20-16-40"} , print("aleluya, this app is working")  # added print command to see how it works in the swagger ui.
 
 # @app.post("/testeo") # a test function to check the format of the input data
 # def testeo(datos : Samplein):
 #     return datos.sample    
     
 
-@app.post("/sendfile")  #takes a pd.DataFrame.to_csv() file and returns the prediction # in swagger version it opend the explorer to choose the file
-async def sendfile(file: UploadFile = File(...)):
+# @app.post("/sendfile")  #takes a pd.DataFrame.to_csv() file and returns the prediction # in swagger version it opend the explorer to choose the file
+# async def sendfile(file: UploadFile = File(...)):
 
-    try:
+#     try:
         
-        sample = pd.read_csv(file.file)
+#         sample = pd.read_csv(file.file)
      
-        result = predi(sample)
+#         result = predi(sample)
         
-    except Exception:
-        return {"message": "There was an error uploading the file"}
+#     except Exception:
+#         return {"message": "There was an error uploading the file"}
 
 
-    return result
+#     return result
 
 
 
@@ -69,12 +69,12 @@ async def sendfile(file: UploadFile = File(...)):
 
 
 
-@app.post("/all_in_prediction") # waits for the entry of an id value (of the sample in the test set) and returns the prediction and the sample's label.
-def get_sample_prediction():
-    sample = sample_generator2()
-    result = predi(sample[0])
+# @app.post("/all_in_prediction") # waits for the entry of an id value (of the sample in the test set) and returns the prediction and the sample's label.
+# def get_sample_prediction():
+#     sample = sample_generator2()
+#     result = predi(sample[0])
 
-    return print("The predicted nature of the network status is: {} and the actual status is: {}.".format(result , sample[1]))
+#     return print("The predicted nature of the network status is: {} and the actual status is: {}.".format(result , sample[1]))
 
     
 @app.post("/all_in_prediction2") # receives an id value (integer) (of the sample in the test set) and returns the prediction and the sample's label.
